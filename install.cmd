@@ -5,7 +5,9 @@ rem Installs (replaces) every plugin from dist\ into the system VST3 folder.
 rem   install.cmd        install, asks for admin rights
 rem   install.cmd /dry   only show what would be replaced
 
+rem Release zip: plugins in VST3\ next to this file; source checkout: dist\.
 set "SRC=%~dp0dist"
+if exist "%~dp0VST3\*.vst3" set "SRC=%~dp0VST3"
 set "DST=%CommonProgramFiles%\VST3"
 set "DRY="
 if /i "%~1"=="/dry" set "DRY=1"
