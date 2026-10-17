@@ -1,0 +1,24 @@
+[package]
+name = "petal-eq"
+version = "0.1.0"
+edition = "2021"
+authors = ["b4demus"]
+description = "Pastel parametric EQ with band audition"
+license = "GPL-3.0-or-later"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[dependencies]
+nih_plug = { workspace = true }
+nih_plug_egui = { workspace = true }
+bundle_ui = { workspace = true }
+
+[features]
+# Standalone app for previewing the UI without a DAW; plays a built-in test signal.
+standalone = ["nih_plug/standalone"]
+
+[[bin]]
+name = "petal-eq-standalone"
+path = "src/bin/standalone.rs"
+required-features = ["standalone"]

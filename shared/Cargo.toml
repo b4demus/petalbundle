@@ -1,0 +1,11 @@
+[package]
+name = "bundle_ui"
+version = "0.1.0"
+edition = "2021"
+authors = ["b4demus"]
+description = "Shared pastel look for the plugin bundle: palette, knobs, cards, pills"
+license = "GPL-3.0-or-later"
+
+[dependencies]
+nih_plug = { workspace = true }
+nih_plug_egui = { workspace = true }

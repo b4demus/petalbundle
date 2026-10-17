@@ -1,0 +1,24 @@
+[package]
+name = "petal-half"
+version = "0.1.0"
+edition = "2021"
+authors = ["b4demus"]
+description = "Pastel tempo-synced half-time effect"
+license = "GPL-3.0-or-later"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[dependencies]
+nih_plug = { workspace = true }
+nih_plug_egui = { workspace = true }
+bundle_ui = { workspace = true }
+
+[features]
+# Standalone app for previewing the UI without a DAW; plays a built-in drum loop.
+standalone = ["nih_plug/standalone"]
+
+[[bin]]
+name = "petal-half-standalone"
+path = "src/bin/standalone.rs"
+required-features = ["standalone"]

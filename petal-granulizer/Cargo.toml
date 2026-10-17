@@ -1,0 +1,27 @@
+[package]
+name = "petal-granulizer"
+version = "0.1.0"
+edition = "2021"
+authors = ["b4demus"]
+description = "Pastel granular texture effect"
+license = "GPL-3.0-or-later"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[dependencies]
+nih_plug = { workspace = true }
+nih_plug_egui = { workspace = true }
+bundle_ui = { workspace = true }
+
+[features]
+# Standalone app for previewing the UI without a DAW; plays built-in test plucks.
+standalone = ["nih_plug/standalone"]
+
+[[bin]]
+name = "petal-granulizer-standalone"
+path = "src/bin/standalone.rs"
+required-features = ["standalone"]
+
+[dev-dependencies]
+hound = "3.5"

@@ -1,0 +1,5 @@
+# Static CRT so the plugin is a single self-contained DLL (portable install).
+# build.ps1 also points LIBRARY_PATH at .cargo/libstub: w64devkit's libgcc.a
+# already contains the SEH unwinder, so an empty libgcc_eh.a satisfies rustc.
+[target.x86_64-pc-windows-gnu]
+rustflags = ["-C", "target-feature=+crt-static"]

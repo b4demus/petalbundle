@@ -1,0 +1,24 @@
+[package]
+name = "petal-squash"
+version = "0.1.0"
+edition = "2021"
+authors = ["b4demus"]
+description = "Pastel three-band upward/downward compressor"
+license = "GPL-3.0-or-later"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[dependencies]
+nih_plug = { workspace = true }
+nih_plug_egui = { workspace = true }
+bundle_ui = { workspace = true }
+
+[features]
+# Standalone app for previewing the UI without a DAW; plays a built-in test loop.
+standalone = ["nih_plug/standalone"]
+
+[[bin]]
+name = "petal-squash-standalone"
+path = "src/bin/standalone.rs"
+required-features = ["standalone"]

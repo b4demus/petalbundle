@@ -1,0 +1,13 @@
+[workspace]
+resolver = "2"
+members = ["shared", "petal-granulizer", "petal-eq", "petal-comp", "petal-squash", "petal-delay", "petal-verb", "petal-double", "petal-retro", "petal-shift", "petal-crush", "petal-oracle", "petal-mod", "petal-limit", "petal-half", "petal-air"]
+
+[workspace.dependencies]
+nih_plug = { git = "https://github.com/robbert-vdh/nih-plug.git" }
+nih_plug_egui = { git = "https://github.com/robbert-vdh/nih-plug.git" }
+bundle_ui = { path = "shared" }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = "symbols"
